@@ -1,5 +1,4 @@
 <template>
-  <h1 v-if="formData && formData.name" class="position-absalute top-0">{{ formData.name }}</h1>
   <h4 class="col-md-10 offset-md-1 bolder my-5">Engineering Sectors</h4>
   <div class="col-md-10 offset-md-1 d-flex flex-wrap justify-content-between">
     <div
