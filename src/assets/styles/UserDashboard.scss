@@ -1,0 +1,32 @@
+.topImageContainer {
+  height: 908px;
+  position: relative;
+}
+.topImage {
+  z-index: -2;
+}
+
+.mbImageContainer {
+  display: none;
+}
+// dashbrd end
+
+
+/* mobile  */
+@media (max-width: 768px) {
+  .topImage {
+    height: 474px;
+  }
+  .mbImageContainer {
+    display: unset;
+    background-image: url("../assets/img/groupText.svg");
+    width: 20%;
+    height: 20%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: 255px;
+    width: 300.4521789550781px;
+  }
+}

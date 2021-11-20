@@ -1,0 +1,129 @@
+{
+    "options": {
+        "engineeringSectors": [
+            {
+                "id": "1",
+                "img": "img/ESectors/1.jpg",
+                "title": "Electrical Installation Design"
+            },
+            {
+                "id": "2",
+                "img": "img/ESectors/2.jpg",
+                "title": "Electrical Inspection & Testing"
+            },
+            {
+                "id": "3",
+                "img": "img/ESectors/3.jpg",
+                "title": "Lighting Design"
+            },
+            {
+                "id": "4",
+                "img": "img/ESectors/4.jpg",
+                "title": "Photovoltaic Design & Installation"
+            },
+            {
+                "id": "5",
+                "img": "img/ESectors/5.jpg",
+                "title": "Energy Performance Certificates"
+            },
+            {
+                "id": "6",
+                "img": "img/ESectors/6.jpg",
+                "title": "Electrical Equipment Testing (PAT)"
+            }
+        ],
+        "ourProjects": [
+            {
+                "id": "1",
+                "img": "img/OurProjects/1.jpg",
+                "title": "GEORGIA LAMBROU RESIDENCE"
+            },
+            {
+                "id": "2",
+                "img": "img/OurProjects/2.jpg",
+                "title": ""
+            },
+            {
+                "id": "3",
+                "img": "img/OurProjects/3.jpg",
+                "title": ""
+            }
+        ],
+        "ourClient": [
+            {
+                "id": "1",
+                "img": "img/OurClients/1.png"
+            },
+            {
+                "id": "2",
+                "img": "img/OurClients/2.png"
+            },
+            {
+                "id": "3",
+                "img": "img/OurClients/3.png"
+            },
+            {
+                "id": "4",
+                "img": "img/OurClients/4.png"
+            },
+            {
+                "id": "5",
+                "img": "img/OurClients/5.png"
+            },
+            {
+                "id": "6",
+                "img": "img/OurClients/6.png"
+            },
+            {
+                "id": "7",
+                "img": "img/OurClients/7.png"
+            },
+            {
+                "id": "8",
+                "img": "img/OurClients/8.png"
+            },
+            {
+                "id": "9",
+                "img": "img/OurClients/9.png"
+            },
+            {
+                "id": "10",
+                "img": "img/OurClients/10.png"
+            },
+            {
+                "id": "11",
+                "img": "img/OurClients/11.png"
+            },
+            {
+                "id": "12",
+                "img": "img/OurClients/12.png"
+            }
+        ],
+        "membersOf": [
+            {
+                "id": "1",
+                "img": "img/OurClients/13.png"
+            },
+            {
+                "id": "2",
+                "img": "img/OurClients/14.png"
+            },
+            {
+                "id": "3",
+                "img": "img/OurClients/15.png"
+            },
+            {
+                "id": "4",
+                "img": "img/OurClients/16.png"
+            },
+            {
+                "id": "5",
+                "img": "img/OurClients/17.png"
+            },
+            {
+                "id": "6",
+                "img": "img/OurClients/18.png"
+            }
+        ]
+    }
+}

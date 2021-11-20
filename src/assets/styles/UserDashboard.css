@@ -1,0 +1,44 @@
+.topImageContainer {
+  height: 908px;
+  position: relative;
+}
+
+.topImage {
+  z-index: -2;
+}
+
+.mbImageContainer {
+  display: none;
+}
+
+
+
+.eSectorImg {
+  margin-right: 2%;
+}
+
+.eSectorImg img {
+  width: 366px;
+  height: 366px;
+}
+
+/* mobile  */
+@media (max-width: 768px) {
+  .topImage {
+    height: 474px;
+  }
+  .mbImageContainer {
+    display: unset;
+    background-image: url("../assets/img/groupText.svg");
+    width: 20%;
+    height: 20%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    height: 255px;
+    width: 300.4521789550781px;
+  }
+}
+/*# sourceMappingURL=UserDashboard.css.map */
