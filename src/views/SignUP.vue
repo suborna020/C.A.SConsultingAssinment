@@ -1,11 +1,19 @@
 <template>
-  <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
   <div class="container-fluid">
-    <form class="p-5" @submit.prevent="onSubmit()">
+    <form class="p-5" @submit="onSubmit">
       <h4 class="text-center">{{ $options.name }}</h4>
-
       <div class="row">
         <div class="col-md-4 col-sm-12 offset-md-4 border border-2 rounded p-4">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              v-model="form.name"
+              name="name"
+              required
+            />
+          </div>
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label"
               >Email address</label
@@ -13,8 +21,8 @@
             <input
               type="email"
               class="form-control"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
+              v-model="form.email"
+              name="email"
               required
             />
             <div id="emailHelp" class="form-text">
@@ -28,7 +36,8 @@
             <input
               type="password"
               class="form-control"
-              id="exampleInputPassword1"
+              v-model="form.password"
+              name="password"
               required
             />
           </div>
@@ -43,11 +52,22 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
+
 export default {
   name: 'SignUp',
+  data() {
+    return {
+      form: {},
+    };
+  },
+
   methods: {
-    onSubmit() {
-      this.$router.push({ name: 'UserDashboard' });
+    ...mapMutations(['signUp']),
+    onSubmit(e) {
+      e.preventDefault();
+      this.signUp(this.form);
+      this.$router.push({ name: 'Login' });
     },
   },
 };

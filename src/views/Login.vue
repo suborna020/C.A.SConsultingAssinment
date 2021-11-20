@@ -1,12 +1,12 @@
 <template>
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
-   <div class="container-fluid">
+  <div class="container-fluid">
+    <form class="p-5" @submit="onSubmit">
+      <h1 class="text-center" v-if="error">{{error}}</h1>
 
-    <form class="p-5" @submit.prevent="onSubmit()">
-      <h4 class="text-center">{{$options.name}}</h4>
+      <h4 class="text-center">{{ $options.name }}</h4>
 
       <div class="row">
-        <div class="col-md-4 col-sm-12 offset-md-4 border border-2 rounded p-4 ">
+        <div class="col-md-4 col-sm-12 offset-md-4 border border-2 rounded p-4">
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label"
               >Email address</label
@@ -16,9 +16,11 @@
               class="form-control"
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
+              v-model="loginForm.email"
+              name="email"
               required
             />
-            <div  class="form-text">
+            <div class="form-text">
               We'll never share your email with anyone else.
             </div>
           </div>
@@ -30,33 +32,55 @@
               type="password"
               class="form-control"
               id="exampleInputPassword1"
+              v-model="loginForm.password"
+              name="password"
               required
             />
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
           <div class="form-text">
-            or <router-link to="/signup" class="fw-bold"> Sign up? </router-link>
+            or
+            <router-link to="/signup" class="fw-bold"> Sign up? </router-link>
           </div>
         </div>
       </div>
     </form>
-   </div>
+  </div>
 </template>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue';
+import { mapState } from 'vuex';
 
 export default {
   name: 'Login',
-  components: {
-    // HelloWorld,
+  data() {
+    return {
+      loginForm: {
+        email: null,
+        password: null,
+      },
+      error: '',
+    };
+  },
+  computed: {
+    ...mapState(['formData']),
   },
   methods: {
-    onSubmit() {
-      this.$router.push({ name: 'UserDashboard' });
-    },
+    onSubmit(e) {
+      const myThis = this;
+      const l = this.loginForm;
+      const f = this.formData;
+      console.log(l);
+      console.log(f);
 
+      e.preventDefault();
+      if (l.email === f.email && l.password === f.password) {
+        localStorage.setItem('userLoggedIn', true);
+        myThis.$router.push({ name: 'UserDashboard' });
+      } else {
+        this.error = "Credantials did't match try Again ";
+      }
+    },
   },
 };
 </script>

@@ -8,16 +8,27 @@ const routes = [
     path: '/',
     name: 'Login',
     component: Login,
+    beforeEnter: (to, from, next) => {
+      const isAuthenticated = !!localStorage.getItem('userLoggedIn');
+      if (to.name === 'Login' && isAuthenticated) next({ name: 'UserDashboard' });
+      else next();
+    },
   },
   {
     path: '/signup',
     name: 'SignUp',
     component: SignUp,
   },
+
   {
     path: '/userdashboard',
     name: 'UserDashboard',
     component: UserDashboard,
+    // beforeEnter: (to, from, next) => {
+    //   const isAuthenticated = !!localStorage.getItem('userLoggedIn');
+    //   if (to.name !== 'Login' && !isAuthenticated) next({ name: 'Login' });
+    //   else next();
+    // },
   },
   {
     path: '/about',
@@ -27,7 +38,6 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
   },
-
 ];
 
 const router = createRouter({
