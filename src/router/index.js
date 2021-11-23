@@ -24,11 +24,11 @@ const routes = [
     path: '/userdashboard',
     name: 'UserDashboard',
     component: UserDashboard,
-    // beforeEnter: (to, from, next) => {
-    //   const isAuthenticated = !!localStorage.getItem('userLoggedIn');
-    //   if (to.name !== 'Login' && !isAuthenticated) next({ name: 'Login' });
-    //   else next();
-    // },
+    beforeEnter: (to, from, next) => {
+      const isAuthenticated = !!localStorage.getItem('userLoggedIn');
+      if (to.name !== 'Login' && !isAuthenticated) next({ name: 'Login' });
+      else next();
+    },
   },
   {
     path: '/about',

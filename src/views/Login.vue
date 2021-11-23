@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <form class="p-5" @submit="onSubmit">
-      <h1 class="text-center" v-if="error">{{error}}</h1>
+      <h1 class="text-center text-danger" v-if="loginStatus">{{ loginStatus }}</h1>
 
       <h4 class="text-center">{{ $options.name }}</h4>
 
@@ -49,7 +49,9 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import {
+  mapGetters, mapActions, mapMutations, mapState,
+} from 'vuex';
 
 export default {
   name: 'Login',
@@ -59,27 +61,20 @@ export default {
         email: null,
         password: null,
       },
-      error: '',
     };
   },
   computed: {
-    ...mapState(['formData']),
+    ...mapGetters(['UserDbData']),
+    ...mapState(['loginStatus']),
+
   },
   methods: {
+    ...mapMutations(['passLoginFormData']),
+    ...mapActions(['fetchAllUser']),
     onSubmit(e) {
-      const myThis = this;
-      const l = this.loginForm;
-      const f = this.formData;
-      console.log(l);
-      console.log(f);
-
       e.preventDefault();
-      if (l.email === f.email && l.password === f.password) {
-        localStorage.setItem('userLoggedIn', true);
-        myThis.$router.push({ name: 'UserDashboard' });
-      } else {
-        this.error = "Credantials did't match try Again ";
-      }
+      this.passLoginFormData(this.loginForm);
+      this.fetchAllUser();
     },
   },
 };

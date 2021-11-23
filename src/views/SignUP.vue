@@ -53,6 +53,7 @@
 
 <script>
 import { mapMutations } from 'vuex';
+import Axios from 'axios';
 
 export default {
   name: 'SignUp',
@@ -66,8 +67,16 @@ export default {
     ...mapMutations(['signUp']),
     onSubmit(e) {
       e.preventDefault();
-      this.signUp(this.form);
-      this.$router.push({ name: 'Login' });
+      // this.signUp(this.form);
+      // this.$router.push({ name: 'Login' });
+      Axios
+        .post('https://619c762368ebaa001753c8a5.mockapi.io/casConsulting/users', this.form)
+        .then(() => {
+          console.log('yes');
+        })
+        .catch(() => {
+          console.log('no');
+        });
     },
   },
 };
