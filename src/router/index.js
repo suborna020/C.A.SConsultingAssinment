@@ -8,11 +8,11 @@ const routes = [
     path: '/',
     name: 'Login',
     component: Login,
-    beforeEnter: (to, from, next) => {
-      const isAuthenticated = !!localStorage.getItem('userLoggedIn');
-      if (to.name === 'Login' && isAuthenticated) next({ name: 'UserDashboard' });
-      else next();
-    },
+    // beforeEnter: (to, from, next) => {
+    //   const isAuthenticated = !!localStorage.getItem('userLoggedIn');
+    //   if (to.name === 'Login' && isAuthenticated) next({ name: 'UserDashboard' });
+    //   else next();
+    // },
   },
   {
     path: '/signup',

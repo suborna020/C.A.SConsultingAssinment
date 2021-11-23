@@ -10,7 +10,6 @@
         {{ data.title }}
       </div>
     </div>
-
   </div>
   <div class="col-md-10 offset-md-1">
     <div class="text-decoration-underline smallText bolder">
@@ -20,12 +19,17 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'OurProjects',
+  methods: { ...mapActions(['fetchOurProjects']) },
+
   computed: {
-    ...mapState(['ourProjects']),
+    ...mapGetters(['ourProjects']),
+  },
+  created() {
+    this.fetchOurProjects();
   },
 };
 </script>

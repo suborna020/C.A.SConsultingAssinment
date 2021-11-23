@@ -18,12 +18,17 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'ESectors',
+  methods: { ...mapActions(['fetchESectors']) },
   computed: {
-    ...mapState(['engineeringSectors', 'formData']),
+    ...mapState(['formData']),
+    ...mapGetters(['engineeringSectors']),
+  },
+  created() {
+    this.fetchESectors();
   },
 };
 </script>
