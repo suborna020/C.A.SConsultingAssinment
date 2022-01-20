@@ -1,6 +1,10 @@
 <template>
   <div class="container-fluid">
     <form class="p-5" @submit="onSubmit">
+      <h1 class="text-center text-danger" v-if="loginStatus">
+        {{ loginStatus }}
+      </h1>
+
       <h4 class="text-center">{{ $options.name }}</h4>
       <div class="row">
         <div class="col-md-4 col-sm-12 offset-md-4 border border-2 rounded p-4">
@@ -54,12 +58,14 @@
 <script>
 import { mapMutations } from 'vuex';
 import Axios from 'axios';
+// import router from '@/router';
 
 export default {
   name: 'SignUp',
   data() {
     return {
       form: {},
+      loginStatus: '',
     };
   },
 
@@ -67,16 +73,18 @@ export default {
     ...mapMutations(['signUp']),
     onSubmit(e) {
       e.preventDefault();
-      console.log(this.form);
+      // console.log(this.form);
       Axios.post(
         'https://619c762368ebaa001753c8a5.mockapi.io/casConsulting/users',
         this.form,
       )
         .then(() => {
-          console.log('yes');
+          // console.log('yes');
+          this.$router.push({ name: 'Login' });
         })
         .catch(() => {
-          console.log('no');
+          this.loginStatus = 'Registration Failed';
+          // console.log('Registration Failed');
         });
     },
   },
