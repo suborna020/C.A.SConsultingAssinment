@@ -67,10 +67,11 @@ export default {
     ...mapMutations(['signUp']),
     onSubmit(e) {
       e.preventDefault();
-      // this.signUp(this.form);
-      // this.$router.push({ name: 'Login' });
-      Axios
-        .post('https://619c762368ebaa001753c8a5.mockapi.io/casConsulting/users', this.form)
+      console.log(this.form);
+      Axios.post(
+        'https://619c762368ebaa001753c8a5.mockapi.io/casConsulting/users',
+        this.form,
+      )
         .then(() => {
           console.log('yes');
         })
